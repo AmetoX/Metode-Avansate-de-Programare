@@ -1,3 +1,5 @@
+using System.Windows.Forms;
+
 namespace Curs_2_Colorarea
 {
     public partial class Form1 : Form
@@ -10,9 +12,12 @@ namespace Curs_2_Colorarea
         private void Form1_Load(object sender, EventArgs e)
         {
             Engine.initGraph(pictureBox1);
-            demo = new Graf();
-            demo.LoadFromFile(@"C:\Users\Marius\Documents\.C#\An 2\Metode-Avansate-de-Programare\Curs_2_Colorarea\Planeta.txt");
-            demo.Draw(Engine.grp);
+            Engine.demo = new Graf();
+            Engine.demo.LoadFromFile(@"../../../Planeta.txt");
+            //Engine.demo.LoadFromFile(@"C:\Users\Marius\Documents\.C#\An 2\Metode-Avansate-de-Programare\Curs_2_Colorarea\Planeta.txt");
+            Engine.demo.Color();
+            List<string> t = Engine.demo.View(listBox2);
+            Engine.demo.Draw(Engine.grp);
             Engine.Refresh();
         }
     }
