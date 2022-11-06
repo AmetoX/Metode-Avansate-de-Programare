@@ -32,7 +32,7 @@ namespace Curs_2_Colorarea
         {
             h.FillEllipse(new SolidBrush(Engine.Pall[color]), Location.X - Size, Location.Y - Size, 2 * Size + 1, 2 * Size + 1);
             h.DrawEllipse(Pens.Black, Location.X - Size, Location.Y - Size, 2 * Size + 1, 2 * Size + 1);
-            h.DrawString(Name, new Font("Arial", 12, FontStyle.Regular), new SolidBrush(Color.Blue), Location.X, Location.Y);
+            h.DrawString(Name, new Font("Arial", 12, FontStyle.Regular), new SolidBrush(Color.White), Location.X, Location.Y);
         }
     }
 }
