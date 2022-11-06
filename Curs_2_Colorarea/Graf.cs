@@ -13,6 +13,7 @@ namespace Curs_2_Colorarea
         public List<Vertex> Vertices;
         public List<Edge> Edges;
         public int[,] Matrix;
+        private List<int> ToR;
 
 
         public Graf()
@@ -129,6 +130,55 @@ namespace Curs_2_Colorarea
             for (int i = 0; i < n; i++)
             {
                 Vertices[i].color = colors[i];
+            }
+        }
+        public List<int> BFS(int ns)
+        {
+            List<int> tor = new List<int>();
+            Queue<int> A = new Queue<int>();
+            bool[] v = new bool[Vertices.Count];
+            v[ns] = false;
+
+            A.Enqueue(ns);
+
+            while (A.Count != 0)
+            {
+                int x = A.Dequeue();
+                tor.Add(x);
+                v[x] = true;
+                for (int i = 0; i < Vertices.Count; i++)
+                {
+                    if (Matrix[x, i] != 0 && !v[i])
+                    {
+                        v[i] = true;
+                        A.Enqueue(i);
+                    }
+                }
+            }
+
+            return tor;
+        }
+
+        public List<int> DFS(int ns)
+        {
+            bool[] v = new bool[Vertices.Count];
+            v[ns] = true;
+            ToR = new List<int>();
+            DFSUtils(ns, v);
+            return ToR;
+        }
+
+        public void DFSUtils(int ns, bool[] v)
+        {
+            ToR.Add(ns);
+            for (int i = 0; i < Vertices.Count; i++)
+            {
+                if (Matrix[ns, i] != 0 && !v[i])
+                {
+                    v[i] = true;
+                    DFSUtils(i, v);
+                }
+
             }
         }
     }

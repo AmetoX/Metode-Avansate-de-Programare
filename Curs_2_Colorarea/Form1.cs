@@ -20,5 +20,25 @@ namespace Curs_2_Colorarea
             Engine.demo.Draw(Engine.grp);
             Engine.Refresh();
         }
+        private void btnBFS_Click(object sender, EventArgs e)
+        {
+            string x = "";
+            List<int> t = Engine.demo.BFS(3);
+            foreach (int i in t)
+            {
+                x += i + " ";
+            }
+            listBox1.Items.Add(x);
+        }
+        private void btnDFS_Click(object sender, EventArgs e)
+        {
+            string x = "";
+            List<int> t = Engine.demo.DFS(3);
+            foreach (int i in t)
+            {
+                x += i + " ";
+            }
+            listBox1.Items.Add(x);
+        }
     }
 }
